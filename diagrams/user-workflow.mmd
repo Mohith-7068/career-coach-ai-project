@@ -1,0 +1,41 @@
+sequenceDiagram
+    autonumber
+    actor Candidate as 👤 Job Seeker / Student
+    participant Browser as 🖥️ Client Browser (React SPA)
+    participant WASM as 👁️ MediaPipe (Client GPU)
+    participant Server as ⚙️ Express Backend (Render)
+    participant Gemini as 🧠 Google Gemini Flash
+    participant Atlas as 💾 MongoDB Atlas Cloud
+
+    Note over Candidate,Atlas: 1. Authentication & Session Initialization
+    Candidate->>Browser: Enters email & password
+    Browser->>Server: POST /api/auth/login
+    Server->>Atlas: Verify scrypt hash & generate session
+    Server-->>Browser: Return { user, access_token }
+    Browser->>Browser: Store token in localStorage
+
+    Note over Candidate,Atlas: 2. Resume Ingestion & ATS Audit
+    Candidate->>Browser: Uploads resume.pdf
+    Browser->>Server: POST /api/resume/upload (Bearer Auth)
+    Server->>Server: Validate %PDF- & extract character stream
+    Server-->>Browser: Return { file_url: "resume:uuid" }
+    Browser->>Server: POST /api/resume/analyze { file_url, role }
+    Server->>Gemini: Evidence-grounded prompt (strict anti-hallucination)
+    Gemini-->>Server: Structured JSON { score, skills, gaps, recommendations }
+    Server-->>Browser: Return ATS diagnostic report
+    Browser->>Atlas: POST /api/entities/ResumeAnalysis (Persist)
+
+    Note over Candidate,Atlas: 3. Interactive AI Mock Interview Studio
+    Candidate->>Browser: Selects Role & clicks Launch Interview
+    Browser->>Server: POST /api/ai/interview-questions { role, skills }
+    Server->>Gemini: Generate role-relevant situational questions
+    Gemini-->>Server: Return 5 structured questions
+    Server-->>Browser: Questions loaded
+    Browser->>WASM: Initialize video feed & detect face landmarks
+    WASM-->>Browser: HUD stream: Face Centered 96%, Eye Openness Optimal
+    Candidate->>Browser: Delivers spoken / typed answer
+    Browser->>Server: POST /api/ai/evaluate-answer { question, answer }
+    Server->>Gemini: STAR methodology audit (Situation, Task, Action, Result)
+    Gemini-->>Server: JSON evaluation { composite_score, star_flags, tips }
+    Server-->>Browser: Display instant feedback & award Career Coins
+    Browser->>Atlas: POST /api/entities/InterviewSession (Persist)

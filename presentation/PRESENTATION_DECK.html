@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerCoach.ai — Pitch Deck (48-Hour Hackathon)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Signature Light Theme inspired by reference design */
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --border-color: #e2e8f0;
+      --border-subtle: #f1f5f9;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --header-bg: rgba(248, 250, 252, 0.94);
+
+      /* 4-Pillar Accent Palette */
+      --color-interview: #6366f1;   /* Purple / Indigo */
+      --color-interview-bg: #f5f3ff;
+      --color-interview-border: #ddd6fe;
+
+      --color-speech: #0d9488;       /* Teal / Mint */
+      --color-speech-bg: #f0fdfa;
+      --color-speech-border: #ccfbf1;
+
+      --color-resume: #0284c7;       /* Sky Blue */
+      --color-resume-bg: #f0f9ff;
+      --color-resume-border: #bae6fd;
+
+      --color-dashboard: #d97706;    /* Amber / Orange */
+      --color-dashboard-bg: #fffbeb;
+      --color-dashboard-border: #fde68a;
+
+      --color-emerald: #10b981;
+      --color-emerald-bg: #ecfdf5;
+      --color-red: #ef4444;
+      --color-red-bg: #fef2f2;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0b0f19;
+      --bg-card: #131b2e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --border-color: #1e293b;
+      --border-subtle: #172033;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+      --header-bg: rgba(11, 15, 25, 0.94);
+
+      --color-interview-bg: rgba(99, 102, 241, 0.14);
+      --color-interview-border: rgba(99, 102, 241, 0.35);
+
+      --color-speech-bg: rgba(13, 148, 136, 0.14);
+      --color-speech-border: rgba(13, 148, 136, 0.35);
+
+      --color-resume-bg: rgba(2, 132, 199, 0.14);
+      --color-resume-border: rgba(2, 132, 199, 0.35);
+
+      --color-dashboard-bg: rgba(217, 119, 6, 0.14);
+      --color-dashboard-border: rgba(217, 119, 6, 0.35);
+
+      --color-emerald-bg: rgba(16, 185, 129, 0.18);
+      --color-red-bg: rgba(239, 68, 68, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Presentation Header & Controls */
+    header {
+      padding: 12px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      z-index: 20;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+
+    .brand-logo .dot-ai {
+      color: var(--color-interview);
+      font-weight: 800;
+    }
+
+    .signature-bars {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .sig-bar {
+      height: 4px;
+      width: 22px;
+      border-radius: 9999px;
+    }
+    .sig-bar.purple { background-color: var(--color-interview); }
+    .sig-bar.teal   { background-color: var(--color-speech); }
+    .sig-bar.blue   { background-color: var(--color-resume); }
+    .sig-bar.orange { background-color: var(--color-dashboard); }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+      background: var(--border-subtle);
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: #ffffff;
+      border: 1px solid #0f172a;
+    }
+    [data-theme="dark"] .btn-primary {
+      background: #4f46e5;
+      border-color: #4f46e5;
+    }
+    .btn-primary:hover {
+      background: #334155;
+    }
+
+    /* Main Slides Viewport */
+    main {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 40px 72px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Hero Slide (Dark Slate Card) */
+    .slide-hero {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 56px 72px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+    .hero-title span { color: #818cf8; }
+
+    .hero-sub {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #f8fafc;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    /* Slide Titles & Layouts */
+    .slide-heading {
+      font-size: 2.65rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .slide-subheading {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 28px;
+      max-width: 950px;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 10px;
+      align-items: stretch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 10px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px 22px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-top-bar {
+      position: absolute;
+      top: 0;
+      left: 18px;
+      right: 18px;
+      height: 4px;
+      border-radius: 0 0 4px 4px;
+    }
+    .card-top-bar.purple { background-color: var(--color-interview); }
+    .card-top-bar.teal   { background-color: var(--color-speech); }
+    .card-top-bar.blue   { background-color: var(--color-resume); }
+    .card-top-bar.orange { background-color: var(--color-dashboard); }
+    .card-top-bar.red    { background-color: var(--color-red); }
+
+    /* Pastel Cards */
+    .card-pastel-purple { background-color: var(--color-interview-bg); border: 1px solid var(--color-interview-border); }
+    .card-pastel-teal   { background-color: var(--color-speech-bg); border: 1px solid var(--color-speech-border); }
+    .card-pastel-blue   { background-color: var(--color-resume-bg); border: 1px solid var(--color-resume-border); }
+    .card-pastel-orange { background-color: var(--color-dashboard-bg); border: 1px solid var(--color-dashboard-border); }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .card-title.purple { color: #4338ca; }
+    .card-title.teal   { color: #0f766e; }
+    .card-title.blue   { color: #0369a1; }
+    .card-title.orange { color: #b45309; }
+    .card-title.red    { color: #dc2626; }
+    [data-theme="dark"] .card-title.purple { color: #a5b4fc; }
+    [data-theme="dark"] .card-title.teal   { color: #5eead4; }
+    [data-theme="dark"] .card-title.blue   { color: #7dd3fc; }
+    [data-theme="dark"] .card-title.orange { color: #fde047; }
+    [data-theme="dark"] .card-title.red    { color: #fca5a5; }
+
+    /* Category Tags */
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+    .meta-tag.challenge {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fee2e2;
+    }
+    .meta-tag.innovation {
+      background: #f0fdfa;
+      color: #0d9488;
+      border: 1px solid #ccfbf1;
+    }
+    .meta-tag .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    [data-theme="dark"] .meta-tag.challenge {
+      background: rgba(239, 68, 68, 0.18);
+      color: #fca5a5;
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+    [data-theme="dark"] .meta-tag.innovation {
+      background: rgba(13, 148, 136, 0.18);
+      color: #5eead4;
+      border-color: rgba(13, 148, 136, 0.35);
+    }
+
+    /* Solution Checklist */
+    .solution-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .solution-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    .solution-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #ecfdf5;
+      color: #059669;
+      border: 1px solid #a7f3d0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    [data-theme="dark"] .solution-check {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .solution-item strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .bottom-punchline {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #4338ca;
+      margin-top: 36px;
+    }
+    [data-theme="dark"] .bottom-punchline { color: #a5b4fc; }
+
+    /* Clean Bullet Lists */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bullet-list li {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .bullet-list li::before {
+      content: "•";
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      line-height: 0;
+    }
+
+    /* STAR Elements */
+    .star-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .star-item {
+      background: var(--color-interview-bg);
+      border: 1px solid var(--color-interview-border);
+      border-radius: 10px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .star-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #4f46e5;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .star-label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .star-label span {
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+
+    /* STAR Topology SVG Container */
+    .star-topology-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    .topology-svg {
+      width: 100%;
+      max-width: 440px;
+      height: 250px;
+    }
+
+    /* Stat Cards (Slide 5 style) */
+    .stat-hero-card {
+      background: var(--color-speech-bg);
+      border: 1px solid var(--color-speech-border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 190px;
+    }
+    .stat-hero-num {
+      font-size: 3.25rem;
+      font-weight: 800;
+      color: #0f766e;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    [data-theme="dark"] .stat-hero-num { color: #2dd4bf; }
+    .stat-hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Chips */
+    .chips-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chip {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      box-shadow: var(--shadow-sm);
+    }
+    [data-theme="dark"] .chip {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-color: #334155;
+    }
+
+    /* Readiness Bar Chart */
+    .readiness-bar-container {
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 56px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 16px;
+    }
+    .readiness-segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+    .readiness-segment.seg-1 { background-color: var(--color-interview); width: 35%; }
+    .readiness-segment.seg-2 { background-color: var(--color-speech); width: 25%; }
+    .readiness-segment.seg-3 { background-color: var(--color-resume); width: 25%; }
+    .readiness-segment.seg-4 { background-color: var(--color-dashboard); width: 15%; }
+
+    .readiness-labels-grid {
+      display: grid;
+      grid-template-columns: 35% 25% 25% 15%;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+    .readiness-label-item {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .score-bands {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .score-band {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .score-band.red   { background-color: var(--color-red-bg); color: var(--color-red); border: 1px solid #fecaca; }
+    .score-band.amber { background-color: var(--color-dashboard-bg); color: var(--color-dashboard); border: 1px solid var(--color-dashboard-border); }
+    .score-band.emerald { background-color: var(--color-emerald-bg); color: #047857; border: 1px solid #a7f3d0; }
+
+    /* Tables (Clean Comparison & Persona Tables) */
+    .clean-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .clean-table th, .clean-table td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .clean-table th {
+      background: var(--border-subtle);
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .clean-table tr:last-child td { border-bottom: none; }
+
+    .badge-check {
+      background: rgba(16, 185, 129, 0.15);
+      color: #047857;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-cross {
+      background: rgba(239, 68, 68, 0.15);
+      color: #b91c1c;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Roadmap 5-Step Chain */
+    .roadmap-chain {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .roadmap-node {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .roadmap-node-num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-interview);
+      margin-bottom: 8px;
+    }
+    .roadmap-node-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .roadmap-node-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+    .roadmap-node-status {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-subtle);
+    }
+    .roadmap-node-status.live { color: #059669; }
+    .roadmap-node-status.active { color: #2563eb; }
+
+    /* Footer & Navigation Bar */
+    footer {
+      padding: 12px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      z-index: 20;
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      height: 4px;
+      background: var(--border-color);
+      margin: 0 32px;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-interview), var(--color-speech), var(--color-resume), var(--color-dashboard));
+      width: 7.14%;
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-hints {
+      display: flex;
+      gap: 14px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    kbd {
+      background: var(--border-subtle);
+      border: 1px solid var(--border-color);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-main);
+    }
+
+    /* Speaker Notes Drawer */
+    #speaker-notes-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-card);
+      border-top: 2px solid var(--color-interview);
+      padding: 22px 48px;
+      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 60;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+    #speaker-notes-drawer.open { transform: translateY(0); }
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .notes-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      color: var(--color-interview);
+    }
+    .notes-body {
+      font-size: 1rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Controls -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-logo">CareerCoach<span class="dot-ai">.ai</span></div>
+      <div class="signature-bars">
+        <div class="sig-bar purple"></div>
+        <div class="sig-bar teal"></div>
+        <div class="sig-bar blue"></div>
+        <div class="sig-bar orange"></div>
+      </div>
+    </div>
+    <div class="nav-controls">
+      <button class="btn" id="btn-theme" onclick="toggleTheme()" title="Toggle Light / Dark mode">☀️ Theme</button>
+      <button class="btn" id="btn-notes" onclick="toggleNotes()">🎙️ Notes <kbd>N</kbd></button>
+      <button class="btn" id="btn-fullscreen" onclick="toggleFullscreen()">⛶ Fullscreen <kbd>F</kbd></button>
+      <button class="btn" onclick="prevSlide()">‹ Prev</button>
+      <span id="slide-counter" style="font-size: 0.9rem; font-weight: 700; min-width: 55px; text-align: center; color: var(--text-main);">1 / 14</span>
+      <button class="btn btn-primary" onclick="nextSlide()">Next ›</button>
+    </div>
+  </header>
+
+  <!-- Main Slides Viewport -->
+  <main>
+
+    <!-- Slide 1: Hero (Title) -->
+    <div class="slide active" data-notes="Good morning judges. We are thrilled to introduce CareerCoach.ai. Over the past 48 hours, we built an evidence-grounded, multimodal career coaching platform. In a job market where rejection letters are automated and 1-on-1 human coaching costs $250 an hour, CareerCoach.ai brings executive career preparation to every student and job seeker's fingertips.">
+      <div class="slide-hero">
+        <div class="hero-meta">HACKATHON SUBMISSION · TEAM CAREERCOACH</div>
+        <h1 class="hero-title">CareerCoach<span>.ai</span></h1>
+        <div class="hero-sub">Practise the conversations that decide careers.</div>
+        <div class="hero-desc">Interview · Speaking · Resume, tracked as one Career Readiness Score</div>
+        <div class="signature-bars" style="margin-top: 10px;">
+          <div class="sig-bar purple" style="width: 44px; height: 6px;"></div>
+          <div class="sig-bar teal" style="width: 44px; height: 6px;"></div>
+          <div class="sig-bar blue" style="width: 44px; height: 6px;"></div>
+          <div class="sig-bar orange" style="width: 44px; height: 6px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: The Broken Hiring Pipeline -->
+    <div class="slide" data-notes="Job preparation today is completely scattered. 75%+ of resumes are silently eliminated by automated ATS filters due to formatting bugs or missing keywords. When candidates finally get an interview, professional coaching costs $200+ an hour, leading to unstructured delivery under stress. And rejections provide zero telemetry, creating a feedback desert.">
+      <div class="meta-tag challenge"><span class="tag-dot"></span> THE CHALLENGE</div>
+      <h1 class="slide-heading" style="margin-bottom: 12px;">The Broken Hiring Pipeline</h1>
+      <div class="slide-subheading" style="margin-bottom: 28px;">Job seekers face automated rejections, expensive human coaching barriers, and a total vacuum of actionable feedback.</div>
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-top-bar red"></div>
+          <div class="card-title red" style="margin-top: 6px;">75%+ Filtered Out</div>
+          <div class="card-text">Resumes are silently eliminated by Applicant Tracking Systems (ATS) due to formatting bugs or missing keywords.</div>
+        </div>
+        <div class="card">
+          <div class="card-top-bar orange"></div>
+          <div class="card-title orange" style="margin-top: 6px;">$200+/Hour Coaching</div>
+          <div class="card-text">Professional 1-on-1 interview and speech coaching is financially out of reach for students and career changers.</div>
+        </div>
+        <div class="card">
+          <div class="card-top-bar purple"></div>
+          <div class="card-title purple" style="margin-top: 6px;">Unstructured Delivery</div>
+          <div class="card-text">Candidates ramble under stress, use 15+ filler words per answer, and fail to apply the STAR method.</div>
+        </div>
+        <div class="card">
+          <div class="card-top-bar teal"></div>
+          <div class="card-title teal" style="margin-top: 6px;">The Feedback Desert</div>
+          <div class="card-text">Rejections provide zero telemetry. Candidates make the exact same mistakes in subsequent interviews.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Our Solution: CareerCoachAI -->
+    <div class="slide" data-notes="Our solution, CareerCoachAI, provides a unified, multimodal career acceleration platform. We combine byte-level PDF resume parsing and LLM grounding, acoustic speech transcription with filler word counting, and privacy-first browser face and eye landmark tracking. Together with a single 0-100 Career Readiness Index and Career Coins gamification, practice becomes an engaging daily habit.">
+      <div class="meta-tag innovation"><span class="tag-dot"></span> THE INNOVATION</div>
+      <h1 class="slide-heading" style="margin-bottom: 12px;">Our Solution: CareerCoachAI</h1>
+      <div class="slide-subheading" style="margin-bottom: 28px;">A unified, multimodal career acceleration platform providing continuous, quantitative, and private readiness feedback.</div>
+      <div class="grid-2">
+        <div class="card" style="padding: 32px 30px;">
+          <div class="card-top-bar purple"></div>
+          <div class="card-title purple" style="font-size: 1.45rem; margin-top: 6px; margin-bottom: 16px;">1. Multimodal Intelligence</div>
+          <div class="solution-list">
+            <div class="solution-item">
+              <span class="solution-check">✓</span>
+              <div><strong>Text:</strong> Byte-level PDF resume parsing &amp; LLM grounding</div>
+            </div>
+            <div class="solution-item">
+              <span class="solution-check">✓</span>
+              <div><strong>Audio:</strong> Acoustic speech transcription &amp; filler word counting</div>
+            </div>
+            <div class="solution-item">
+              <span class="solution-check">✓</span>
+              <div><strong>Vision:</strong> Privacy-first browser face and eye landmark tracking</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding: 32px 30px;">
+          <div class="card-top-bar teal"></div>
+          <div class="card-title teal" style="font-size: 1.45rem; margin-top: 6px; margin-bottom: 16px;">2. Habit Formation &amp; Gamification</div>
+          <div class="solution-list">
+            <div class="solution-item">
+              <span class="solution-check">✓</span>
+              <div><strong>Career Readiness Index:</strong> Single unified 0–100 benchmark score</div>
+            </div>
+            <div class="solution-item">
+              <span class="solution-check">✓</span>
+              <div><strong>Career Coins &amp; XP:</strong> Rewarding consistent daily practice habits</div>
+            </div>
+            <div class="solution-item">
+              <span class="solution-check">✓</span>
+              <div><strong>Target Role Roadmaps:</strong> Direct matching against live job descriptions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: One Platform, Four Studios, One Score -->
+    <div class="slide" data-notes="CareerCoach.ai unifies four essential studios into one authoritative Career Readiness Score. The Interview Studio enforces STAR behavioral questions; the Communication Studio listens to acoustic pace and counts filler words; the Resume Studio performs zero-hallucination ATS matching; and the Dashboard synthesizes everything into daily habit formation. And it is completely private by design.">
+      <h1 class="slide-heading">One platform, four parts, one score</h1>
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-top-bar purple"></div>
+          <div class="card-title" style="color: var(--color-interview); margin-top: 6px;">Interview Studio</div>
+          <div class="card-text">STAR-based mock interviews with typed, microphone or video answers and on-device MediaPipe framing.</div>
+        </div>
+        <div class="card">
+          <div class="card-top-bar teal"></div>
+          <div class="card-title" style="color: var(--color-speech); margin-top: 6px;">Communication Studio</div>
+          <div class="card-text">Live transcript, pace in words per minute (WPM), and real-time filler-word counting via Gemini.</div>
+        </div>
+        <div class="card">
+          <div class="card-top-bar blue"></div>
+          <div class="card-title" style="color: var(--color-resume); margin-top: 6px;">Resume Studio</div>
+          <div class="card-text">ATS score and job-description match separating formatting defects from genuine capability gaps.</div>
+        </div>
+        <div class="card">
+          <div class="card-top-bar orange"></div>
+          <div class="card-title" style="color: var(--color-dashboard); margin-top: 6px;">Dashboard</div>
+          <div class="card-text">One readiness score, history chart, streak tracking, and daily mission habit loops.</div>
+        </div>
+      </div>
+      <div style="margin-top: 32px; font-size: 1.15rem; color: var(--text-muted); font-weight: 600;">
+        Free to start, private by design: in the current build everything stays in your browser.
+      </div>
+    </div>
+
+    <!-- Slide 5: Full-Stack Architecture & Zero-Leakage Privacy -->
+    <div class="slide" data-notes="Let's look at engineering. We prioritized low latency and ironclad privacy. For computer vision, we run Google MediaPipe Tasks Vision client-side in the browser via WebAssembly and WebGL GPU acceleration. Zero video frames are ever uploaded! For audio, we capture microphone streams and transcribe them via Gemini's multimodal audio API. And for storage, we support MongoDB Atlas with an automated local encrypted fallback.">
+      <h1 class="slide-heading">Full-Stack Architecture & Privacy-First AI</h1>
+      <div class="slide-subheading">A decoupled, high-resilience architecture with zero mock AI fallbacks and client-side computer vision.</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-top-bar purple"></div>
+          <div class="card-title" style="color: var(--color-interview); margin-top: 4px;">Client-Side Vision (WASM)</div>
+          <p class="card-text">MediaPipe FaceLandmarker runs in-browser on GPU/WASM. Evaluates face centering & eye engagement. <strong>Zero video uploaded.</strong></p>
+        </div>
+        <div class="card">
+          <div class="card-top-bar teal"></div>
+          <div class="card-title" style="color: var(--color-speech); margin-top: 4px;">Gemini Multimodal API</div>
+          <p class="card-text">Live Express backend sends audio and text to Google Gemini Flash with strict JSON schema enforcement. No hallucinations.</p>
+        </div>
+        <div class="card">
+          <div class="card-top-bar orange"></div>
+          <div class="card-title" style="color: var(--color-dashboard); margin-top: 4px;">Hybrid Persistence Tier</div>
+          <p class="card-text">MongoDB Atlas Mongoose integration with automated fallback to local salted <code>scrypt</code> encrypted storage in development.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Interview Studio & STAR Topology -->
+    <div class="slide" data-notes="The gold standard for behavioral interviews at top tech companies is the STAR methodology. In the Interview Studio, our AI evaluates candidate responses across all four interconnected dimensions of the STAR topology: Situation, Task, Action, and Result. Our central AI evaluator scores relevance, clarity, and correctness, verifying that the candidate provided concrete metrics and technical actions.">
+      <h1 class="slide-heading" style="color: var(--color-interview);">Interview Studio: answers that follow STAR</h1>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list" style="margin-bottom: 20px;">
+            <li>Choose a role and level: Entry, Mid or Senior</li>
+            <li>Five behavioural & technical questions synthesized dynamically</li>
+            <li>Answer by typing, microphone or video preview with live HUD</li>
+            <li>Scored for STAR completeness, relevance, clarity and correctness</li>
+            <li>Post-session review of strengths and actionable improvements</li>
+          </ul>
+
+          <div class="star-stack">
+            <div class="star-item">
+              <div class="star-badge">S</div>
+              <div class="star-label">Situation:<span>the context and project challenge</span></div>
+            </div>
+            <div class="star-item">
+              <div class="star-badge">T</div>
+              <div class="star-label">Task:<span>your specific responsibility</span></div>
+            </div>
+            <div class="star-item">
+              <div class="star-badge">A</div>
+              <div class="star-label">Action:<span>the technical steps you executed</span></div>
+            </div>
+            <div class="star-item">
+              <div class="star-badge">R</div>
+              <div class="star-label">Result:<span>measurable outcome and business numbers</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive STAR Topology Diagram -->
+        <div class="star-topology-box">
+          <svg class="topology-svg" viewBox="0 0 440 280">
+            <defs>
+              <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6366f1" />
+                <stop offset="100%" stop-color="#4f46e5" />
+              </linearGradient>
+            </defs>
+
+            <!-- Star Topology Connections -->
+            <line x1="220" y1="140" x2="100" y2="70" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="4" />
+            <line x1="220" y1="140" x2="340" y2="70" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="4" />
+            <line x1="220" y1="140" x2="100" y2="210" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="4" />
+            <line x1="220" y1="140" x2="340" y2="210" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="4" />
+
+            <!-- Situation Node -->
+            <circle cx="100" cy="70" r="32" fill="#ede9fe" stroke="#6366f1" stroke-width="2" />
+            <text x="100" y="66" text-anchor="middle" font-weight="800" font-size="14" fill="#4338ca">S</text>
+            <text x="100" y="80" text-anchor="middle" font-weight="600" font-size="9" fill="#6d28d9">Situation</text>
+
+            <!-- Task Node -->
+            <circle cx="340" cy="70" r="32" fill="#ede9fe" stroke="#6366f1" stroke-width="2" />
+            <text x="340" y="66" text-anchor="middle" font-weight="800" font-size="14" fill="#4338ca">T</text>
+            <text x="340" y="80" text-anchor="middle" font-weight="600" font-size="9" fill="#6d28d9">Task</text>
+
+            <!-- Action Node -->
+            <circle cx="100" cy="210" r="32" fill="#ede9fe" stroke="#6366f1" stroke-width="2" />
+            <text x="100" y="206" text-anchor="middle" font-weight="800" font-size="14" fill="#4338ca">A</text>
+            <text x="100" y="220" text-anchor="middle" font-weight="600" font-size="9" fill="#6d28d9">Action</text>
+
+            <!-- Result Node -->
+            <circle cx="340" cy="210" r="32" fill="#ede9fe" stroke="#6366f1" stroke-width="2" />
+            <text x="340" y="206" text-anchor="middle" font-weight="800" font-size="14" fill="#4338ca">R</text>
+            <text x="340" y="220" text-anchor="middle" font-weight="600" font-size="9" fill="#6d28d9">Result</text>
+
+            <!-- Central Hub -->
+            <circle cx="220" cy="140" r="42" fill="url(#starGrad)" />
+            <text x="220" y="136" text-anchor="middle" font-weight="800" font-size="12" fill="#ffffff">AI EVAL</text>
+            <text x="220" y="152" text-anchor="middle" font-weight="600" font-size="9" fill="#e0e7ff">STAR TOPOLOGY</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Communication Studio -->
+    <div class="slide" data-notes="Communication Studio turns anxious speech into authoritative executive delivery. Candidates speak naturally into their microphone. In seconds, our acoustic algorithms calculate their exact words-per-minute (targeting the ideal 110–160 WPM pace band) and count every occurrence of filler words like 'um', 'like', and 'you know', helping candidates reduce fillers from 18 to 2 in just three practice rounds.">
+      <h1 class="slide-heading" style="color: var(--color-speech);">Communication Studio: hear your own delivery</h1>
+      <div class="grid-3" style="margin-bottom: 28px;">
+        <div class="stat-hero-card">
+          <div class="stat-hero-num">110–160</div>
+          <div class="stat-hero-desc">words per minute is the optimal executive pace band</div>
+        </div>
+        <div class="stat-hero-card">
+          <div class="stat-hero-num">60 s</div>
+          <div class="stat-hero-desc">off-the-cuff warm-up with a live microphone waveform</div>
+        </div>
+        <div class="stat-hero-card">
+          <div class="stat-hero-num">8</div>
+          <div class="stat-hero-desc">filler words and phrases counted, such as um, like and you know</div>
+        </div>
+      </div>
+      <div style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6;">
+        Live transcription uses the browser's Web Speech API and Gemini multimodal audio. Each session saves its transcript, pace, filler count, clarity and tone scores, with actionable feedback.
+      </div>
+    </div>
+
+    <!-- Slide 8: Resume Studio -->
+    <div class="slide" data-notes="In the Resume Studio, candidates upload a text-based PDF resume. Unlike tools that hallucinate skills or run basic keyword searches, our engine verifies the PDF magic bytes and isolates cosmetic formatting issues (such as passive verbs or unquantified metrics) from genuine technical capability gaps. It audits seven core sections and matches skills directly against live job descriptions.">
+      <h1 class="slide-heading" style="color: var(--color-resume);">Resume Studio: from PDF to a clear to-do list</h1>
+      <div class="grid-2">
+        <div>
+          <ol class="bullet-list" style="margin-bottom: 20px;">
+            <li>1. Upload a PDF resume (verified with magic byte checks)</li>
+            <li>2. Seven core sections are checked for completeness</li>
+            <li>3. Evidence-grounded ATS score from 0 to 100 is generated</li>
+            <li>4. Paste a target job title and job description</li>
+            <li>5. See matching and missing keywords, with concrete gap closing roadmaps</li>
+          </ol>
+          <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Zero hallucination: Gemini is strictly constrained to extract only verified facts present in the uploaded document.
+          </div>
+        </div>
+        <div class="card" style="background: var(--color-resume-bg); border-color: var(--color-resume-border);">
+          <div style="font-size: 1.2rem; font-weight: 700; color: #0369a1; margin-bottom: 12px;">Sections checked</div>
+          <div class="chips-cluster">
+            <span class="chip">Contact</span>
+            <span class="chip">Summary</span>
+            <span class="chip">Education</span>
+            <span class="chip">Experience</span>
+            <span class="chip">Skills</span>
+            <span class="chip">Projects</span>
+            <span class="chip">Certifications</span>
+          </div>
+          <div style="margin-top: 24px; font-size: 1rem; color: var(--text-muted); line-height: 1.5;">
+            Matching uses keyword overlap and competency grounding between the resume and the target job description.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: The Career Readiness Score -->
+    <div class="slide" data-notes="Instead of multiple fragmented metrics, CareerCoach.ai synthesizes four sub-scores into a single Career Readiness Score: 35% STAR interview, 25% speech delivery, 25% resume, and 15% technical match. Color bands indicate red (below 50), amber (50 to 74), and emerald (75 and above), giving candidates objective psychological confidence before their live interviews.">
+      <h1 class="slide-heading">One number that shows progress</h1>
+      <div class="slide-subheading">The Career Readiness Score weights four sub-scores, each from 0 to 100.</div>
+
+      <div class="readiness-bar-container">
+        <div class="readiness-segment seg-1">35%</div>
+        <div class="readiness-segment seg-2">25%</div>
+        <div class="readiness-segment seg-3">25%</div>
+        <div class="readiness-segment seg-4">15%</div>
+      </div>
+
+      <div class="readiness-labels-grid">
+        <div class="readiness-label-item" style="color: var(--color-interview);">STAR interview</div>
+        <div class="readiness-label-item" style="color: var(--color-speech);">Speech delivery</div>
+        <div class="readiness-label-item" style="color: var(--color-resume);">Resume</div>
+        <div class="readiness-label-item" style="color: var(--color-dashboard);">Technical match</div>
+      </div>
+
+      <div class="score-bands">
+        <div class="score-band red">Below 50: red</div>
+        <div class="score-band amber">50 to 74: amber</div>
+        <div class="score-band emerald">75 and above: emerald</div>
+      </div>
+
+      <div style="margin-top: 36px; font-size: 1rem; color: var(--text-subtle);">
+        All sub-scores are rule-based practice indicators, not predictions of hiring outcomes.
+      </div>
+    </div>
+
+    <!-- Slide 10: Gamification & Career Coins Economy -->
+    <div class="slide" data-notes="Job searching is emotionally draining. To combat burnout, we built a gamified habit loop. Completing an interview awards 100 coins, resume audits award 50 coins, and maintaining daily streaks awards bonus XP. Our idempotent ledger ensures zero double-counting, turning practice into an engaging daily routine.">
+      <h1 class="slide-heading" style="color: var(--color-dashboard);">Gamified Progress & Career Coins Economy</h1>
+      <div class="slide-subheading">Replacing job-search burnout with positive habit loops, transparent streaks, and verified milestones.</div>
+      <div class="grid-3">
+        <div class="card card-pastel-orange">
+          <div class="card-title orange">Career Coins & XP</div>
+          <p class="card-text">Earn coins for completing speech drills (+30), resume uploads (+50), and mock sessions (+100). Redeemable for premium features.</p>
+        </div>
+        <div class="card card-pastel-purple">
+          <div class="card-title purple">Idempotent Ledger</div>
+          <p class="card-text">Account-scoped transaction tracking with unique reference hashes preventing duplicate rewards or data cross-contamination.</p>
+        </div>
+        <div class="card card-pastel-teal">
+          <div class="card-title teal">Readiness Radar</div>
+          <p class="card-text">Multi-axis visual radar chart updating live as candidates practice, giving tangible proof of preparation progress.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 11: Who It Helps (Personas & Market Matrix) -->
+    <div class="slide" data-notes="Who does CareerCoach.ai serve? From students needing structured practice for their first campus placements, to early-career professionals tuning resumes for specific jobs, career changers identifying technical skill gaps, and candidates looking to eliminate nervous speech fillers.">
+      <h1 class="slide-heading">Who it helps</h1>
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>User Persona</th>
+            <th>What they need</th>
+            <th>Where it helps</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Student or fresh graduate</strong></td>
+            <td>Structured practice for first interviews</td>
+            <td>Interview, Communication</td>
+          </tr>
+          <tr>
+            <td><strong>Early-career professional</strong></td>
+            <td>A resume tuned to a specific job description</td>
+            <td>Resume</td>
+          </tr>
+          <tr>
+            <td><strong>Career changer</strong></td>
+            <td>See skill gaps against a target role roadmap</td>
+            <td>Resume, Dashboard</td>
+          </tr>
+          <tr>
+            <td><strong>Anyone who rambles or fills pauses</strong></td>
+            <td>Hear their own pace and eliminate fillers</td>
+            <td>Communication</td>
+          </tr>
+          <tr>
+            <td><strong>Working professional (planned)</strong></td>
+            <td>Practice for negotiations and incident reviews</td>
+            <td>Workplace scenarios</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 20px; font-size: 1rem; color: var(--text-muted);">
+        Business model ideas: freemium, coins redeemable for premium access, and cohort programmes for colleges.
+      </div>
+    </div>
+
+    <!-- Slide 12: Business Model & Market Opportunity -->
+    <div class="slide" data-notes="The commercial potential is immense. In a $15.8B career services market, human coaches charge $250 an hour. We charge $14.99 a month for consumers and $8 per student per year for universities. Because our vision model runs entirely on-device and Gemini Flash is ultra-efficient, our blended cost per mock session is just 0.3 cents, giving us an extraordinary 98.4% gross margin.">
+      <h1 class="slide-heading">Market Opportunity & Scalable Unit Economics</h1>
+      <div class="slide-subheading">$15.8B Global Career Prep Market with high-margin software delivery.</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-top-bar purple"></div>
+          <div class="card-title" style="color: var(--color-interview); margin-top: 4px;">B2C Pro ($14.99 / Mo)</div>
+          <p class="card-text">Unlimited AI video mock interviews, in-depth ATS resume audits, and custom roadmap generations for active job seekers.</p>
+        </div>
+        <div class="card">
+          <div class="card-top-bar teal"></div>
+          <div class="card-title" style="color: var(--color-speech); margin-top: 4px;">B2B University SaaS</div>
+          <p class="card-text"><strong>$8 / Student / Year:</strong> Institutional licensing for campus career centers with aggregate placement cohort telemetry.</p>
+        </div>
+        <div class="card">
+          <div class="card-top-bar orange"></div>
+          <div class="card-title" style="color: var(--color-dashboard); margin-top: 4px;">98.4% Gross Margin</div>
+          <p class="card-text">Blended API cost per mock session is <strong>~$0.00317</strong>. On-device vision is free; Gemini Flash yields exceptional margins.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 13: Roadmap & Honest Limits -->
+    <div class="slide" data-notes="We believe in transparency and shippable phases. We adhere to clear principles: additive changes, a fallback for every AI feature, numbers computed in code, and no secrets in the browser. We clearly document our current boundaries alongside our validation roadmap with student cohorts.">
+      <h1 class="slide-heading">Roadmap: five phases & honest validation</h1>
+      <div class="roadmap-chain" style="margin-bottom: 24px;">
+        <div class="roadmap-node">
+          <div class="roadmap-node-num">1</div>
+          <div class="roadmap-node-title">Foundations</div>
+          <div class="roadmap-node-desc">FAQ, privacy, terms, error handling, accessibility</div>
+          <div class="roadmap-node-status live">Shipped ✓</div>
+        </div>
+        <div class="roadmap-node">
+          <div class="roadmap-node-num">2</div>
+          <div class="roadmap-node-title">Generative AI</div>
+          <div class="roadmap-node-desc">Secure Gemini endpoint, follow-up questions, fallback</div>
+          <div class="roadmap-node-status active">Live / Testing</div>
+        </div>
+        <div class="roadmap-node">
+          <div class="roadmap-node-num">3</div>
+          <div class="roadmap-node-title">Workplace</div>
+          <div class="roadmap-node-desc">Personas, negotiation, incident defence, speaking nudges</div>
+          <div class="roadmap-node-status">Planned</div>
+        </div>
+        <div class="roadmap-node">
+          <div class="roadmap-node-num">4</div>
+          <div class="roadmap-node-title">Focus UI</div>
+          <div class="roadmap-node-desc">Calmer design, adjustable motion</div>
+          <div class="roadmap-node-status active">In Progress</div>
+        </div>
+        <div class="roadmap-node">
+          <div class="roadmap-node-num">5</div>
+          <div class="roadmap-node-title">Product</div>
+          <div class="roadmap-node-desc">Backend, real accounts, billing</div>
+          <div class="roadmap-node-status">Planned</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card" style="background: #fef2f2; border: 1px solid #fecaca; padding: 16px 20px;">
+          <div class="card-title" style="color: #b91c1c; font-size: 1.1rem; margin-bottom: 6px;">Known limits</div>
+          <div style="font-size: 0.9rem; color: #7f1d1d; line-height: 1.45;">
+            Scores are keyword and pattern based; data lives in one browser; speech features require Chrome or Edge; no user study has run yet.
+          </div>
+        </div>
+        <div class="card" style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 16px 20px;">
+          <div class="card-title" style="color: #15803d; font-size: 1.1rem; margin-bottom: 6px;">Next: validate with real users</div>
+          <div style="font-size: 0.9rem; color: #14532d; line-height: 1.45;">
+            Run a pilot with university students; track session return rate; compare readiness scores; publish results once measured.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 14: Thank You (Hero Closing) -->
+    <div class="slide" data-notes="Thank you so much judges and participants. CareerCoach.ai empowers candidates to walk into interviews prepared, confident, and articulate. We look forward to your questions and demonstrating the live platform!">
+      <div class="slide-hero">
+        <h1 class="hero-title" style="font-size: 4rem;">Thank you</h1>
+        <div class="hero-sub" style="margin-bottom: 20px;">Practise the conversations that decide careers.</div>
+        <div class="signature-bars" style="margin-bottom: 32px;">
+          <div class="sig-bar purple" style="width: 44px; height: 6px;"></div>
+          <div class="sig-bar teal" style="width: 44px; height: 6px;"></div>
+          <div class="sig-bar blue" style="width: 44px; height: 6px;"></div>
+          <div class="sig-bar orange" style="width: 44px; height: 6px;"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 1.1rem; color: #94a3b8;">
+          <div><strong style="color: #ffffff;">Team:</strong> Team CareerCoach</div>
+          <div><strong style="color: #ffffff;">Demo:</strong> <span style="color: #818cf8;">http://localhost:5173</span> · <strong style="color: #ffffff;">Code:</strong> CareerCoachAI Repository</div>
+          <div><strong style="color: #ffffff;">Contact:</strong> careercoach.ai@hackathon.dev</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Speaker Notes Drawer -->
+  <div id="speaker-notes-drawer">
+    <div class="notes-header">
+      <div class="notes-tag">Speaker Talking Points</div>
+      <button class="btn" style="padding: 3px 8px; font-size: 0.75rem;" onclick="toggleNotes()">✕ Close</button>
+    </div>
+    <div class="notes-body" id="notes-content"></div>
+  </div>
+
+  <!-- Footer Navigation & Progress -->
+  <footer>
+    <div class="nav-hints">
+      <span><kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to navigate</span>
+      <span><kbd>N</kbd> Notes</span>
+      <span><kbd>F</kbd> Fullscreen</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-inner" id="progress-fill"></div>
+    </div>
+    <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted);">
+      CareerCoach<span style="color: var(--color-interview);">.ai</span>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const counter = document.getElementById('slide-counter');
+    const progressFill = document.getElementById('progress-fill');
+    const notesDrawer = document.getElementById('speaker-notes-drawer');
+    const notesContent = document.getElementById('notes-content');
+
+    function updateSlide() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      progressFill.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+      notesContent.textContent = slides[currentSlide].getAttribute('data-notes') || 'No speaker notes for this slide.';
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleNotes() {
+      notesDrawer.classList.toggle('open');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        document.exitFullscreen().catch(err => console.log(err));
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.body.removeAttribute('data-theme');
+        document.getElementById('btn-theme').textContent = '☀️ Theme';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('btn-theme').textContent = '🌙 Theme';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key.toLowerCase() === 'n') {
+        e.preventDefault();
+        toggleNotes();
+      } else if (e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        toggleFullscreen();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        currentSlide = 0;
+        updateSlide();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        currentSlide = totalSlides - 1;
+        updateSlide();
+      }
+    });
+
+    // Initialize first slide notes
+    updateSlide();
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+    "name": "ResumeAnalysis",
+    "type": "object",
+    "properties": {
+        "file_name": {
+            "type": "string"
+        },
+        "file_url": {
+            "type": "string"
+        },
+        "score": {
+            "type": "number"
+        },
+        "word_count": {
+            "type": "number"
+        },
+        "has_metrics": {
+            "type": "boolean"
+        },
+        "extracted_skills": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "detected_sections": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "missing_sections": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "strengths": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "weaknesses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "recommendations": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": []
+}

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%" font-family="Inter, system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065F46" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C2D12" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532D" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)" />
+
+  <!-- Header -->
+  <text x="600" y="45" text-anchor="middle" fill="#F8FAFC" font-size="24" font-weight="800" letter-spacing="0.5">CAREERCOACHAI — FULL-STACK SYSTEM ARCHITECTURE</text>
+  <text x="600" y="72" text-anchor="middle" fill="#94A3B8" font-size="14" font-weight="400">Decoupled Multimodal AI Architecture with Privacy-First Edge Computer Vision &amp; Cloud Persistence</text>
+
+  <!-- Tier 1: Client Tier -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="100" width="340" height="650" rx="12" fill="#1E293B" stroke="#334155" stroke-width="2" />
+    <rect x="50" y="100" width="340" height="50" rx="12" fill="url(#clientGrad)" />
+    <text x="220" y="132" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">CLIENT TIER (Vercel SPA)</text>
+
+    <!-- Component 1: React 18 UI -->
+    <rect x="70" y="170" width="300" height="90" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1.5" />
+    <text x="85" y="198" fill="#38BDF8" font-size="14" font-weight="700">React 18 &amp; Vite 6 Frontend</text>
+    <text x="85" y="222" fill="#CBD5E1" font-size="12">TailwindCSS, Radix UI &amp; Lucide Icons</text>
+    <text x="85" y="242" fill="#94A3B8" font-size="11">Production SPA Rewrites (vercel.json)</text>
+
+    <!-- Component 2: MediaPipe Vision -->
+    <rect x="70" y="280" width="300" height="110" rx="8" fill="#0F172A" stroke="#818CF8" stroke-width="1.5" />
+    <text x="85" y="308" fill="#A5B4FC" font-size="14" font-weight="700">MediaPipe FaceLandmarker</text>
+    <text x="85" y="330" fill="#CBD5E1" font-size="12">100% In-Browser WASM &amp; WebGL Engine</text>
+    <text x="85" y="352" fill="#4ADE80" font-size="12" font-weight="600">✓ Zero Video Streaming to Server</text>
+    <text x="85" y="372" fill="#94A3B8" font-size="11">Head Centering &amp; Eye Openness Tracking</text>
+
+    <!-- Component 3: Web Audio API -->
+    <rect x="70" y="410" width="300" height="90" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1.5" />
+    <text x="85" y="438" fill="#F472B6" font-size="14" font-weight="700">Web Audio API Capture</text>
+    <text x="85" y="462" fill="#CBD5E1" font-size="12">Microphone Audio Recording</text>
+    <text x="85" y="482" fill="#94A3B8" font-size="11">MediaRecorder Buffer Streaming</text>
+
+    <!-- Component 4: Client State -->
+    <rect x="70" y="520" width="300" height="100" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1.5" />
+    <text x="85" y="548" fill="#FBBF24" font-size="14" font-weight="700">Client-Side Persistence</text>
+    <text x="85" y="572" fill="#CBD5E1" font-size="12">Account-Scoped LocalStorage Cache</text>
+    <text x="85" y="594" fill="#94A3B8" font-size="11">Bearer Auth Token &amp; Idempotent Ledger</text>
+  </g>
+
+  <!-- Tier 2: API & Orchestration Tier -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="100" width="340" height="650" rx="12" fill="#1E293B" stroke="#334155" stroke-width="2" />
+    <rect x="430" y="100" width="340" height="50" rx="12" fill="url(#apiGrad)" />
+    <text x="600" y="132" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">API ORCHESTRATION (Render)</text>
+
+    <!-- Component 1: Express Router & Auth -->
+    <rect x="450" y="170" width="300" height="90" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1.5" />
+    <text x="465" y="198" fill="#34D399" font-size="14" font-weight="700">Express 4 Router &amp; Auth</text>
+    <text x="465" y="222" fill="#CBD5E1" font-size="12">Salted scrypt Hashing &amp; Session Tokens</text>
+    <text x="465" y="242" fill="#94A3B8" font-size="11">requireUser Bearer Token Middleware</text>
+
+    <!-- Component 2: Multer & pdf-parse -->
+    <rect x="450" y="280" width="300" height="100" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1.5" />
+    <text x="465" y="308" fill="#38BDF8" font-size="14" font-weight="700">Multer In-Memory Ingestion</text>
+    <text x="465" y="332" fill="#CBD5E1" font-size="12">Magic Byte Validation (%PDF- &lt;= 8MB)</text>
+    <text x="465" y="354" fill="#94A3B8" font-size="11">pdf-parse Character Stream Extraction</text>
+
+    <!-- Component 3: Acoustic Speech Engine -->
+    <rect x="450" y="400" width="300" height="90" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1.5" />
+    <text x="465" y="428" fill="#F472B6" font-size="14" font-weight="700">Acoustic Speech Engine</text>
+    <text x="465" y="452" fill="#CBD5E1" font-size="12">Cadence &amp; WPM Calculation (120-160)</text>
+    <text x="465" y="472" fill="#94A3B8" font-size="11">Regex Filler Word Density Classifier</text>
+
+    <!-- Component 4: Gemini Orchestration -->
+    <rect x="450" y="510" width="300" height="110" rx="8" fill="#0F172A" stroke="#FB923C" stroke-width="1.5" />
+    <text x="465" y="538" fill="#FB923C" font-size="14" font-weight="700">Gemini Prompt Orchestrator</text>
+    <text x="465" y="562" fill="#CBD5E1" font-size="12">Strict Anti-Hallucination Guardrails</text>
+    <text x="465" y="582" fill="#CBD5E1" font-size="12">STAR Evaluation Composite Scoring</text>
+    <text x="465" y="602" fill="#94A3B8" font-size="11">Fallback Model Tiering (2.5 &amp; 1.5 Flash)</text>
+  </g>
+
+  <!-- Tier 3: External Intelligence & Cloud Persistence -->
+  <g filter="url(#shadow)">
+    <rect x="810" y="100" width="340" height="300" rx="12" fill="#1E293B" stroke="#334155" stroke-width="2" />
+    <rect x="810" y="100" width="340" height="50" rx="12" fill="url(#aiGrad)" />
+    <text x="980" y="132" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">AI TIER (Google DeepMind)</text>
+
+    <!-- Gemini Card -->
+    <rect x="830" y="170" width="300" height="200" rx="8" fill="#0F172A" stroke="#FB923C" stroke-width="1.5" />
+    <text x="850" y="202" fill="#FB923C" font-size="15" font-weight="700">Google Gemini Flash API</text>
+    <text x="850" y="230" fill="#CBD5E1" font-size="12">• Evidence-Grounded ATS Resume Parsing</text>
+    <text x="850" y="255" fill="#CBD5E1" font-size="12">• Multimodal Audio Speech Transcription</text>
+    <text x="850" y="280" fill="#CBD5E1" font-size="12">• STAR Interview Question Synthesis</text>
+    <text x="850" y="305" fill="#CBD5E1" font-size="12">• 4-Dimension Answer Evaluation</text>
+    <text x="850" y="335" fill="#4ADE80" font-size="11" font-weight="600">✓ JSON Response Schema Validation</text>
+  </g>
+
+  <!-- Database Tier -->
+  <g filter="url(#shadow)">
+    <rect x="810" y="440" width="340" height="310" rx="12" fill="#1E293B" stroke="#334155" stroke-width="2" />
+    <rect x="810" y="440" width="340" height="50" rx="12" fill="url(#dbGrad)" />
+    <text x="980" y="472" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">DATA TIER (MongoDB Atlas)</text>
+
+    <!-- Mongo Card -->
+    <rect x="830" y="510" width="300" height="210" rx="8" fill="#0F172A" stroke="#4ADE80" stroke-width="1.5" />
+    <text x="850" y="538" fill="#4ADE80" font-size="15" font-weight="700">MongoDB Atlas Cloud</text>
+    <text x="850" y="565" fill="#CBD5E1" font-size="12">• Users &amp; Active Sessions</text>
+    <text x="850" y="588" fill="#CBD5E1" font-size="12">• ResumeAnalysis (Scores &amp; Skills)</text>
+    <text x="850" y="611" fill="#CBD5E1" font-size="12">• InterviewSession (STAR Transcripts)</text>
+    <text x="850" y="634" fill="#CBD5E1" font-size="12">• SpeechSession (Acoustic Metrics)</text>
+    <text x="850" y="657" fill="#CBD5E1" font-size="12">• CoinTransaction (Idempotent Ledger)</text>
+    <text x="850" y="680" fill="#CBD5E1" font-size="12">• CareerState (Readiness Scores &amp; XP)</text>
+    <text x="850" y="705" fill="#38BDF8" font-size="11" font-weight="600">✓ Strict Account-Scoped User Isolation</text>
+  </g>
+
+  <!-- Connectors & Arrows -->
+  <path d="M 390 215 L 430 215" stroke="#38BDF8" stroke-width="2.5" fill="none" marker-end="url(#arrow)" />
+  <path d="M 390 455 L 430 455" stroke="#F472B6" stroke-width="2.5" fill="none" />
+  <path d="M 770 270 L 810 270" stroke="#FB923C" stroke-width="2.5" fill="none" />
+  <path d="M 770 595 L 810 595" stroke="#4ADE80" stroke-width="2.5" fill="none" />
+</svg>

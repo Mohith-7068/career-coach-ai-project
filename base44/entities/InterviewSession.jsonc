@@ -1,0 +1,76 @@
+{
+    "name": "InterviewSession",
+    "type": "object",
+    "properties": {
+        "role": {
+            "type": "string"
+        },
+        "experience_level": {
+            "type": "string"
+        },
+        "questions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "question_text": {
+                        "type": "string"
+                    },
+                    "question_type": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "answers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "question_text": {
+                        "type": "string"
+                    },
+                    "answer_text": {
+                        "type": "string"
+                    },
+                    "score": {
+                        "type": "number"
+                    },
+                    "relevance": {
+                        "type": "number"
+                    },
+                    "clarity": {
+                        "type": "number"
+                    },
+                    "correctness": {
+                        "type": "number"
+                    },
+                    "star": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "strengths": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "recommendations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "average_score": {
+            "type": "number"
+        },
+        "completed": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "required": []
+}

@@ -1,0 +1,101 @@
+{
+    "name": "CareerState",
+    "type": "object",
+    "properties": {
+        "target_role": {
+            "type": "string",
+            "default": "Software Engineer"
+        },
+        "experience_level": {
+            "type": "string",
+            "enum": [
+                "entry",
+                "mid",
+                "senior"
+            ],
+            "default": "entry"
+        },
+        "coin_balance": {
+            "type": "number",
+            "default": 245
+        },
+        "lifetime_earned": {
+            "type": "number",
+            "default": 295
+        },
+        "lifetime_spent": {
+            "type": "number",
+            "default": 50
+        },
+        "xp": {
+            "type": "number",
+            "default": 340
+        },
+        "streak_days": {
+            "type": "number",
+            "default": 6
+        },
+        "longest_streak": {
+            "type": "number",
+            "default": 10
+        },
+        "active_days": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "default": [
+                "MON",
+                "TUE",
+                "WED",
+                "THU",
+                "FRI",
+                "SAT"
+            ]
+        },
+        "coins_today": {
+            "type": "number",
+            "default": 15
+        },
+        "plan": {
+            "type": "string",
+            "enum": [
+                "FREE",
+                "PREMIUM"
+            ],
+            "default": "FREE"
+        },
+        "plan_acquisition": {
+            "type": "string",
+            "default": "FREE"
+        },
+        "plan_expires_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "resume_score": {
+            "type": "number",
+            "default": 82
+        },
+        "communication_score": {
+            "type": "number",
+            "default": 64
+        },
+        "technical_score": {
+            "type": "number",
+            "default": 78
+        },
+        "interview_score": {
+            "type": "number",
+            "default": 69
+        },
+        "last_resume_skills": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "default": []
+        }
+    },
+    "required": []
+}

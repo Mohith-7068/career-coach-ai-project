@@ -1,0 +1,28 @@
+{
+    "name": "CoinTransaction",
+    "type": "object",
+    "properties": {
+        "amount": {
+            "type": "number",
+            "description": "Positive for earned, negative for spent"
+        },
+        "transaction_type": {
+            "type": "string",
+            "description": "WELCOME_BONUS, REWARD_CLAIM, PREMIUM_UNLOCK_COINS, etc."
+        },
+        "description": {
+            "type": "string"
+        },
+        "reference_id": {
+            "type": "string",
+            "description": "Idempotency key"
+        },
+        "balance_after": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "amount",
+        "transaction_type"
+    ]
+}

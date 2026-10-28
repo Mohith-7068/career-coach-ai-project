@@ -1,0 +1,42 @@
+graph TB
+    subgraph ClientTier ["🖥️ Client Tier — React 18 SPA (Hosted on Vercel)"]
+        UI["React SPA & Radix UI<br/>(TailwindCSS & Lucide Icons)"]
+        WASM["MediaPipe FaceLandmarker<br/>(WASM / WebGL GPU Engine)"]
+        AudioRec["Web Audio API<br/>(Microphone Capture & Stream)"]
+        ClientState["Account-Scoped State<br/>(LocalStorage + Idempotent Ledger)"]
+    end
+
+    subgraph APITier ["⚙️ API & Orchestration Tier — Express 4 (Hosted on Render)"]
+        Router["Express Router & Middleware<br/>(CORS & JSON Limit 100kb)"]
+        AuthSvc["Auth Service & requireUser<br/>(Salted scrypt & Session Tokens)"]
+        UploadMgr["Multer In-Memory Buffer<br/>(PDF & Audio Safe Storage)"]
+        PDFParser["pdf-parse Engine<br/>(Magic Byte & Text Extraction)"]
+        SpeechEngine["Speech Scoring Algorithm<br/>(WPM, Pauses, Filler Words)"]
+        LLMOrchestrator["Gemini Prompt Orchestrator<br/>(JSON Schema Enforcement)"]
+    end
+
+    subgraph ExternalAI ["🧠 External Intelligence Tier — Google DeepMind"]
+        GeminiFlash["Google Gemini 2.5 / 1.5 Flash<br/>(Multimodal Audio, Text, STAR Reasoning)"]
+    end
+
+    subgraph DataTier ["💾 Persistence Tier — MongoDB Atlas Cloud"]
+        MongoAtlas[("MongoDB Atlas Cloud Database<br/>(Users, Sessions & Career Entities)")]
+    end
+
+    %% Client to API communication
+    UI -- "REST / HTTPS / JSON + Bearer Auth Token" --> Router
+    AudioRec -- "Multipart Audio Stream" --> Router
+    UI -- "Video Frames (100% In-Browser Privacy)" --> WASM
+    WASM -. "Framing & Eye Openness Metrics" .-> UI
+
+    %% API Internals
+    Router --> AuthSvc
+    Router --> UploadMgr
+    UploadMgr --> PDFParser
+    UploadMgr --> SpeechEngine
+    Router --> LLMOrchestrator
+
+    %% LLM & Database connections
+    LLMOrchestrator -- "Secure REST API (TLS)" --> GeminiFlash
+    AuthSvc -- "Mongoose Driver (Connection Pool)" --> MongoAtlas
+    Router -- "Entity CRUD (userId Scoped)" --> MongoAtlas

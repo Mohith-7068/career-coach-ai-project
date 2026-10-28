@@ -1,0 +1,37 @@
+{
+    "name": "SpeechSession",
+    "type": "object",
+    "properties": {
+        "transcript": {
+            "type": "string"
+        },
+        "word_count": {
+            "type": "number"
+        },
+        "duration_seconds": {
+            "type": "number"
+        },
+        "wpm": {
+            "type": "number"
+        },
+        "filler_count": {
+            "type": "number"
+        },
+        "filler_rate": {
+            "type": "number"
+        },
+        "filler_words_found": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "score": {
+            "type": "number"
+        },
+        "topic": {
+            "type": "string"
+        }
+    },
+    "required": []
+}
